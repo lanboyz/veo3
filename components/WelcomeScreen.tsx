@@ -41,7 +41,7 @@ const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ isExiting }) => {
                             <path d="M12.83 2.56a1 1 0 0 0-1.66 0l-9.09 15.15a1 1 0 0 0 .83 1.59h18.18a1 1 0 0 0 .83-1.59L12.83 2.56zM12 6.89l5.45 9.09H6.55L12 6.89zM5.3 20.3a1 1 0 0 0 1-1.73l-3.07-1.77a1 1 0 1 0-1 1.73l3.07 1.77zm13.4 0a1 1 0 0 0 1.07.03l3.07-1.8a1 1 0 1 0-1-1.73l-3.07 1.8a1 1 0 0 0-.07 1.7z"/>
                         </svg>
                         <h1 className="text-3xl md:text-5xl font-bold text-white tracking-tight">
-                            Prompt Generator Pro Lanexa
+                            Prompt Generator Pro
                         </h1>
                     </div>
                      <p className="text-white/80 mt-4 text-base max-w-md mx-auto">

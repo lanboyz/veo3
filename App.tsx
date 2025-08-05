@@ -198,8 +198,9 @@ const App: React.FC = () => {
                         <main className="mt-6">
                             {activeGenerator === 'veo' ? <VeoGenerator /> : <ImagenGenerator />}
                         </main>
-                        <footer className="text-center py-6 mt-8 text-sm text-violet-400">
-                            Dibuat dengan ❤️ oleh AI Engineer kelas dunia.
+                        <footer className="text-center py-6 mt-8 text-sm text-violet-400 space-y-2">
+                            <p>Dibuat dengan ❤️ oleh AI Engineer kelas dunia.</p>
+                            <p className="font-bold tracking-wider text-violet-500">LANBOY STUDIO</p>
                         </footer>
                     </div>
                 </div>
