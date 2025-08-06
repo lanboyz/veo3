@@ -1,29 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 interface WelcomeScreenProps {
     isExiting: boolean;
 }
 
 const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ isExiting }) => {
-    const [countdown, setCountdown] = useState(5);
-
-    useEffect(() => {
-        // Mengatur interval untuk mengurangi hitungan mundur setiap detik.
-        const timer = setInterval(() => {
-            setCountdown((prevCountdown) => {
-                // Menghentikan hitungan mundur pada angka 1.
-                if (prevCountdown <= 1) {
-                    clearInterval(timer);
-                    return 1;
-                }
-                return prevCountdown - 1;
-            });
-        }, 1000);
-
-        // Membersihkan interval saat komponen dilepas.
-        return () => clearInterval(timer);
-    }, []); // Array dependensi kosong memastikan efek ini hanya berjalan sekali saat mount.
-
     return (
         <div 
             className={`fixed inset-0 z-50 flex flex-col justify-center items-center bg-gradient-to-br from-violet-400 via-purple-500 to-pink-500 overflow-hidden ${isExiting ? 'animate-fade-out' : ''}`}
@@ -36,21 +17,26 @@ const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ isExiting }) => {
 
             <div className="text-center relative z-10 p-4">
                 <div className="bg-white/30 backdrop-blur-sm p-8 rounded-2xl shadow-2xl animate-pop-in">
-                    <div className="flex justify-center items-center gap-4">
-                         <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 md:h-16 md:w-16 text-white" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12.83 2.56a1 1 0 0 0-1.66 0l-9.09 15.15a1 1 0 0 0 .83 1.59h18.18a1 1 0 0 0 .83-1.59L12.83 2.56zM12 6.89l5.45 9.09H6.55L12 6.89zM5.3 20.3a1 1 0 0 0 1-1.73l-3.07-1.77a1 1 0 1 0-1 1.73l3.07 1.77zm13.4 0a1 1 0 0 0 1.07.03l3.07-1.8a1 1 0 1 0-1-1.73l-3.07 1.8a1 1 0 0 0-.07 1.7z"/>
-                        </svg>
-                        <h1 className="text-3xl md:text-5xl font-bold text-white tracking-tight">
-                            Prompt Generator Pro
-                        </h1>
-                    </div>
+                    <h1 className="text-3xl md:text-5xl font-bold text-white tracking-tight">
+                        Prompt Generator Pro
+                    </h1>
                      <p className="text-white/80 mt-4 text-base max-w-md mx-auto">
                         Aplikasi profesional untuk membuat prompt AI video & gambar yang detail.
                     </p>
                 </div>
-                <p className="text-white/70 mt-8 text-4xl font-bold tracking-wider animate-pop-in" style={{ animationDelay: '0.3s' }}>
-                    {countdown}
-                </p>
+                
+                {/* Heartbeat Loader */}
+                <div className="mt-12 w-full flex justify-center items-center px-4">
+                    <svg className="w-full max-w-md" height="60" viewBox="0 0 400 60" xmlns="http://www.w3.org/2000/svg">
+                        <path 
+                            className="heartbeat-line"
+                            d="M 0,30 L 150,30 L 160,10 L 180,50 L 200,20 L 210,30 L 400,30" 
+                            stroke="rgba(255, 255, 255, 0.8)" 
+                            strokeWidth="3" 
+                            fill="none" 
+                        />
+                    </svg>
+                </div>
             </div>
         </div>
     );

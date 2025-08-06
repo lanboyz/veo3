@@ -13,14 +13,21 @@ interface GeneratorLayoutProps<T> {
     expandImageIdeaFunction: (imageData: ImageData) => Promise<Partial<T>>;
 }
 
-const LoadingSpinner: React.FC = () => (
-    <div className="flex items-center justify-center space-x-2">
-        <div className="w-4 h-4 rounded-full animate-pulse bg-violet-400"></div>
-        <div className="w-4 h-4 rounded-full animate-pulse bg-violet-400" style={{animationDelay: '0.2s'}}></div>
-        <div className="w-4 h-4 rounded-full animate-pulse bg-violet-400" style={{animationDelay: '0.4s'}}></div>
-        <span className="ml-2">Membuat keajaiban...</span>
+const HeartbeatLoader: React.FC = () => (
+    <div className="flex flex-col items-center justify-center gap-4 text-violet-600 w-full">
+         <svg className="w-full max-w-sm" height="60" viewBox="0 0 400 60" xmlns="http://www.w3.org/2000/svg">
+            <path
+                className="heartbeat-line"
+                d="M 0,30 L 150,30 L 160,10 L 180,50 L 200,20 L 210,30 L 400,30"
+                stroke="currentColor" 
+                strokeWidth="3"
+                fill="none"
+            />
+        </svg>
+        <p className="font-semibold text-lg">Membuat keajaiban...</p>
     </div>
 );
+
 
 // Define a more specific type for T to ensure it's an object with string keys
 type FormState = Record<string, any>;
@@ -242,14 +249,21 @@ function GeneratorLayout<T extends FormState>({ config, initialState, generateFu
                         disabled={isLoading}
                         className="flex items-center justify-center w-full sm:w-auto bg-violet-600 text-white font-bold py-3 px-12 rounded-lg shadow-lg hover:bg-violet-700 disabled:bg-violet-300 disabled:cursor-not-allowed transform hover:scale-105 transition-all duration-300"
                     >
-                        {isLoading ? <LoadingSpinner /> : 'Buat Prompt Ajaib ✨'}
+                        {isLoading ? (
+                            <div className="flex items-center justify-center space-x-2">
+                                <div className="w-4 h-4 rounded-full animate-pulse bg-white/70" style={{animationDelay: '0s'}}></div>
+                                <div className="w-4 h-4 rounded-full animate-pulse bg-white/70" style={{animationDelay: '0.2s'}}></div>
+                                <div className="w-4 h-4 rounded-full animate-pulse bg-white/70" style={{animationDelay: '0.4s'}}></div>
+                                <span className="ml-2">Memproses...</span>
+                            </div>
+                        ) : 'Buat Prompt Ajaib ✨'}
                     </button>
                 </div>
             </form>
             
             {(isLoading && !result) && (
                 <div className="mt-8 p-6 bg-white rounded-2xl shadow-lg flex justify-center items-center h-48">
-                    <LoadingSpinner />
+                    <HeartbeatLoader />
                 </div>
             )}
 
