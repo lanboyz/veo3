@@ -12,6 +12,7 @@ export interface VeoFormState {
     ekspresi: string;
     tempat: string;
     waktu: string;
+
     gerakanKamera: string;
     pencahayaan: string;
     gayaVideo: string;
@@ -19,6 +20,18 @@ export interface VeoFormState {
     suasanaVideo: string;
     suaraMusik: string;
     kalimatDiucapkan: string;
+    
+    adegan1: string;
+    kalimatDiucapkanAdegan1: string;
+    adegan2: string;
+    kalimatDiucapkanAdegan2: string;
+    adegan3: string;
+    kalimatDiucapkanAdegan3: string;
+    adegan4: string;
+    kalimatDiucapkanAdegan4: string;
+    adegan5: string;
+    kalimatDiucapkanAdegan5: string;
+    
     detailTambahan: string;
 }
 
@@ -48,6 +61,7 @@ export interface ImagenFormState {
 export interface PromptResult {
     indonesianPrompt: string;
     englishPrompt: string;
+    englishPromptWithScenes?: string;
 }
 
 export interface FormField {

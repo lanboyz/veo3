@@ -25,6 +25,16 @@ const initialState: VeoFormState = {
     suasanaVideo: '',
     suaraMusik: '',
     kalimatDiucapkan: '',
+    adegan1: '',
+    kalimatDiucapkanAdegan1: '',
+    adegan2: '',
+    kalimatDiucapkanAdegan2: '',
+    adegan3: '',
+    kalimatDiucapkanAdegan3: '',
+    adegan4: '',
+    kalimatDiucapkanAdegan4: '',
+    adegan5: '',
+    kalimatDiucapkanAdegan5: '',
     detailTambahan: '',
 };
 

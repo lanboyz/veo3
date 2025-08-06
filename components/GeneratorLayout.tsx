@@ -214,10 +214,17 @@ function GeneratorLayout<T extends FormState>({ config, initialState, generateFu
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                     {categories.map((category, index) => {
                         const isFirstCategory = index === 0;
-                        const categoryWrapperClass = isFirstCategory ? 'lg:col-span-2' : '';
-                        const fieldsGridClass = isFirstCategory 
-                            ? 'grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4' 
-                            : 'grid-cols-1 sm:grid-cols-2';
+                        const isSceneCategory = category.title.includes('Adegan');
+                        const isFullWidthCategory = isFirstCategory || isSceneCategory;
+
+                        const categoryWrapperClass = isFullWidthCategory ? 'lg:col-span-2' : '';
+                        
+                        let fieldsGridClass = 'grid-cols-1 sm:grid-cols-2'; // Default
+                        if (isFirstCategory) {
+                            fieldsGridClass = 'grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4';
+                        } else if (isSceneCategory) {
+                            fieldsGridClass = 'grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5';
+                        }
 
                         return (
                             <div key={category.title} className={`bg-white rounded-2xl shadow-md p-5 h-full ${categoryWrapperClass}`}>

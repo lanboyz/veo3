@@ -17,23 +17,6 @@ export const VEO_CONFIG: GeneratorConfig = {
             ]
         },
         {
-            title: "Aksi & Konteks",
-            fields: [
-                { name: 'aksi', label: 'Aksi', placeholder: 'cth: Membaca buku, berlari cepat', color: 'bg-cyan-100' },
-                { name: 'ekspresi', label: 'Ekspresi', placeholder: 'cth: Tersenyum bahagia, terlihat bingung', color: 'bg-sky-100' },
-                { name: 'kalimatDiucapkan', label: 'Kalimat yang Diucapkan', placeholder: 'cth: "Kita harus pergi dari sini!"', color: 'bg-orange-100' },
-            ]
-        },
-        {
-            title: "Setting & Atmosfer",
-            fields: [
-                { name: 'tempat', label: 'Tempat', placeholder: 'cth: Di perpustakaan futuristik, di puncak gunung', color: 'bg-blue-100' },
-                { name: 'waktu', label: 'Waktu', placeholder: 'cth: Saat matahari terbenam, tengah malam', color: 'bg-indigo-100' },
-                { name: 'suasanaVideo', label: 'Suasana Video', placeholder: 'cth: Misterius, ceria, menegangkan', color: 'bg-rose-100' },
-                { name: 'suaraMusik', label: 'Suara atau Musik', placeholder: 'cth: Suara ombak, musik orkestra epik', color: 'bg-red-100' },
-            ]
-        },
-        {
             title: "Sinematografi & Kualitas",
             fields: [
                 { name: 'gerakanKamera', label: 'Gerakan Kamera', placeholder: 'cth: Dolly zoom, panning shot, drone view', color: 'bg-violet-100' },
@@ -46,6 +29,38 @@ export const VEO_CONFIG: GeneratorConfig = {
             title: "Lainnya",
             fields: [
                 { name: 'detailTambahan', label: 'Detail Tambahan', placeholder: 'cth: Ada burung beterbangan, lantai basah', color: 'bg-amber-100' },
+            ]
+        },
+        {
+            title: "Aksi & Konteks",
+            fields: [
+                { name: 'aksi', label: 'Aksi', placeholder: 'cth: Membaca buku, berlari cepat', color: 'bg-cyan-100' },
+                { name: 'ekspresi', label: 'Ekspresi', placeholder: 'cth: Tersenyum bahagia, terlihat bingung', color: 'bg-sky-100' },
+                { name: 'kalimatDiucapkan', label: 'Kalimat yang Diucapkan (Global)', placeholder: 'cth: "Kita harus pergi dari sini!"', color: 'bg-orange-100' },
+            ]
+        },
+        {
+            title: "Setting & Atmosfer",
+            fields: [
+                { name: 'tempat', label: 'Tempat', placeholder: 'cth: Di perpustakaan futuristik, di puncak gunung', color: 'bg-blue-100' },
+                { name: 'waktu', label: 'Waktu', placeholder: 'cth: Saat matahari terbenam, tengah malam', color: 'bg-indigo-100' },
+                { name: 'suasanaVideo', label: 'Suasana Video', placeholder: 'cth: Misterius, ceria, menegangkan', color: 'bg-rose-100' },
+                { name: 'suaraMusik', label: 'Suara atau Musik', placeholder: 'cth: Suara ombak, musik orkestra epik', color: 'bg-red-100' },
+            ]
+        },
+        {
+            title: "Rangkaian Adegan",
+            fields: [
+                { name: 'adegan1', label: 'Adegan 1', placeholder: 'Jelaskan adegan pertama. AI akan mengisi ini.', color: 'bg-rose-100' },
+                { name: 'adegan2', label: 'Adegan 2', placeholder: 'Jelaskan adegan kedua. AI akan mengisi ini.', color: 'bg-rose-100' },
+                { name: 'adegan3', label: 'Adegan 3', placeholder: 'Jelaskan adegan ketiga. AI akan mengisi ini.', color: 'bg-rose-100' },
+                { name: 'adegan4', label: 'Adegan 4', placeholder: 'Jelaskan adegan keempat. AI akan mengisi ini.', color: 'bg-rose-100' },
+                { name: 'adegan5', label: 'Adegan 5', placeholder: 'Jelaskan adegan kelima. AI akan mengisi ini.', color: 'bg-rose-100' },
+                { name: 'kalimatDiucapkanAdegan1', label: 'Dialog Adegan 1', placeholder: 'Dialog untuk adegan 1...', color: 'bg-orange-200' },
+                { name: 'kalimatDiucapkanAdegan2', label: 'Dialog Adegan 2', placeholder: 'Dialog untuk adegan 2...', color: 'bg-orange-200' },
+                { name: 'kalimatDiucapkanAdegan3', label: 'Dialog Adegan 3', placeholder: 'Dialog untuk adegan 3...', color: 'bg-orange-200' },
+                { name: 'kalimatDiucapkanAdegan4', label: 'Dialog Adegan 4', placeholder: 'Dialog untuk adegan 4...', color: 'bg-orange-200' },
+                { name: 'kalimatDiucapkanAdegan5', label: 'Dialog Adegan 5', placeholder: 'Dialog untuk adegan 5...', color: 'bg-orange-200' },
             ]
         }
     ]

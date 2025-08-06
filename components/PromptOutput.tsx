@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { PromptResult } from '../types';
 
@@ -70,6 +69,22 @@ const PromptOutput: React.FC<PromptOutputProps> = ({ result, onIndonesianPromptC
                     </div>
                 </div>
             </div>
+
+            {/* New English Prompt with Scenes - only show if it exists */}
+            {result.englishPromptWithScenes && (
+                <div className="relative mt-6">
+                    <label className="text-lg font-semibold text-gray-700 mb-2 block">Final Prompt + Rangkaian Adegan (English)</label>
+                    <div className="relative">
+                        <textarea
+                            value={result.englishPromptWithScenes}
+                            readOnly
+                            className="w-full h-96 p-3 bg-gray-100 border border-gray-200 rounded-lg text-gray-600 cursor-not-allowed"
+                            placeholder="Final prompt dengan rangkaian adegan akan muncul di sini..."
+                        />
+                        <CopyButton textToCopy={result.englishPromptWithScenes} />
+                    </div>
+                </div>
+            )}
         </div>
     );
 };
