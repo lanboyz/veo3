@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import VeoGenerator from './components/VeoGenerator';
 import ImagenGenerator from './components/ImagenGenerator';
 import WelcomeScreen from './components/WelcomeScreen';
@@ -18,9 +18,27 @@ const App: React.FC = () => {
     const [isExiting, setIsExiting] = useState(false);
     const [isTutorialOpen, setIsTutorialOpen] = useState(false);
     const [notifications, setNotifications] = useState<Notification[]>([]);
+    const [quote, setQuote] = useState(MUTIARA_KATA[Math.floor(Math.random() * MUTIARA_KATA.length)]);
+    const [quoteFade, setQuoteFade] = useState(true);
 
-    const quote = useMemo(() => {
-        return MUTIARA_KATA[Math.floor(Math.random() * MUTIARA_KATA.length)];
+    // Efek untuk mengganti kata mutiara setiap 10 detik dengan animasi fade
+    useEffect(() => {
+        const intervalId = setInterval(() => {
+            setQuoteFade(false); // Mulai animasi fade-out
+            
+            setTimeout(() => {
+                setQuote(prevQuote => {
+                    let newQuote;
+                    do {
+                        newQuote = MUTIARA_KATA[Math.floor(Math.random() * MUTIARA_KATA.length)];
+                    } while (newQuote === prevQuote); // Pastikan kutipan baru berbeda
+                    return newQuote;
+                });
+                setQuoteFade(true); // Mulai animasi fade-in
+            }, 500); // Durasi ini harus cocok dengan durasi transisi di Tailwind CSS (duration-500)
+        }, 10000); // 10 detik
+
+        return () => clearInterval(intervalId); // Membersihkan interval saat komponen unmount
     }, []);
 
     const removeNotification = (id: number) => {
@@ -164,7 +182,7 @@ const App: React.FC = () => {
                                     {/* Separator for desktop */}
                                     <div className="hidden lg:block w-px h-6 bg-violet-200" />
                                     {/* Quote */}
-                                    <p className="text-sm text-violet-500 italic max-w-md" title={quote}>"{quote}"</p>
+                                    <p className={`text-sm text-violet-500 italic max-w-md transition-opacity duration-500 ${quoteFade ? 'opacity-100' : 'opacity-0'}`} title={quote}>"{quote}"</p>
                                 </div>
                                 
                                 {/* Sisi Kanan: Navigasi */}
